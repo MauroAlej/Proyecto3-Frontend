@@ -1,9 +1,15 @@
 import React from "react";
-
+import Navbar from "./components/Navbar";
+import {BrowserRouter as Router} from "react-router-dom"
+import RoutesView from "./routes/RoutesView";
 const App =() => {
 
   return(
-    <h1>Proyecto 3</h1>
+    <Router>
+    <Navbar/>
+ <RoutesView/>
+ 
+  </Router>
   )
 }
 
