@@ -17,17 +17,16 @@ const [formname,setFormname]= useState()
 const handleChange = (ev)=>{
     setFormInput({...formInput,[ev.target.name]: ev.target.value})
 if (formInput.name) {
-if (formInput.usuario) {
-}if (formInput.pass) {
-}if (formInput.reppas)
- {
-    setFormname(false)
-    setFormPass(false)
-    setFormRepppas(false)
-   setFormUser(false)
+  setFormname(false)
+}else if (formInput.user) {
+  setFormUser(false)
+}else if (formInput.pass) {
+  setFormPass(false)
+}else if (formInput.reppas) {
+  setFormRepppas(false)
 }
 
-}}
+}
 
 const handleClick =(ev)=>{
 ev.preventDefault()
