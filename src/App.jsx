@@ -1,9 +1,14 @@
-import React from "react";
+import React from "react"
+import HomePage from "./page/HomePage"
+import {BrowserRouter as Router,} from "react-router-dom"
+import RoutesView from "./routes/RoutesView"
 
 const App =() => {
 
   return(
-    <h1>Proyecto 3</h1>
+    <Router>
+      <RoutesView/>
+    </Router>
   )
 }
 
