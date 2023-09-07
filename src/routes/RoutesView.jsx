@@ -1,11 +1,13 @@
 import React from 'react'
-import HomePage from '../page/HomePage'
 import {Routes, Route} from "react-router-dom"
-
+import LoginPages from '../pages/LoginPages'
+import RegisterPage from '../pages/RegisterPage'
 const RoutesView = () => {
   return (
     <Routes>
-        <Route path ="/" element = {<HomePage/>}/>
+  <Route path='/login' element={<LoginPages/>}/>
+  <Route path='/register' element={<RegisterPage/>}/>
+
     </Routes>
   )
 }

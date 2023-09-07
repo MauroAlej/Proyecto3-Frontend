@@ -1,14 +1,15 @@
-import React from "react"
-import HomePage from "./page/HomePage"
-import {BrowserRouter as Router,} from "react-router-dom"
-import RoutesView from "./routes/RoutesView"
-
+import React from "react";
+import Navbar from "./components/Navbar";
+import {BrowserRouter as Router} from "react-router-dom"
+import RoutesView from "./routes/RoutesView";
 const App =() => {
 
   return(
     <Router>
-      <RoutesView/>
-    </Router>
+    <Navbar/>
+ <RoutesView/>
+ 
+  </Router>
   )
 }
 
