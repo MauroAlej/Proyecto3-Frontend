@@ -1,58 +1,51 @@
 import React, { useEffect, useState } from 'react'
 
 const RegisterPage = () => {
- 
 
-const [formInput,setFormInput]= useState({
-name:"",
-user:"",
-pass:"",
-reppas:""
-})
-const [formname,setFormname]= useState()
-    const [pass,setFormPass]= useState()
-        const [reppas,setFormRepppas]= useState()
-            const [user,setFormUser]= useState()
+  const [formInput, setFormInput] = useState({
+    name: "",
+    user: "",
+    pass: "",
+    rPass: ""
+  });
+  const [nameInput, setNameInput] = useState(false);
+  const [userInput, setUserInput] = useState(false);
+  const [passInput, setPassInput] = useState(false);
+  const [rpassInput, setRpassInput] = useState(false);
 
-const handleChange = (ev)=>{
-    setFormInput({...formInput,[ev.target.name]: ev.target.value})
-if (formInput.name) {
-  setFormname(false)
-}else if (formInput.user) {
-  setFormUser(false)
-}else if (formInput.pass) {
-  setFormPass(false)
-}else if (formInput.reppas) {
-  setFormRepppas(false)
-}
-
-}
-
-const handleClick =(ev)=>{
-ev.preventDefault()
-if (formInput.name) {
-    if (formInput.usuario) {
-    }if (formInput.pass) {
-    }if (formInput.reppas)
-     {
-        setFormname(false)
-        setFormPass(false)
-        setFormRepppas(false)
-       setFormUser(false)
+  const handleChange = (ev) => {
+    setFormInput({ ...formInput, [ev.target.name]: ev.target.value });
+    if (formInput.user) {
+      setUserInput(false)
+    }else if (formInput.pass){
+      setPassInput(false)
+    }else if (formInput.rPass){
+      setRpassInput(false)
     }
-    
-    }else{
-        setFormname(true)
-        setFormPass(true)
-        setFormRepppas(true)
-       setFormUser(true) 
+    else if (formInput.name){
+      setNameInput(false)
     }
+  };
 
-}
-useEffect(()=>{
-console.log(formInput);
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    if (! formInput.name ||!formInput.user || !formInput.pass || !formInput.rPass) {
+      setNameInput(!formInput.name);
+      setUserInput(!formInput.user);
+      setPassInput(!formInput.pass);
+      setRpassInput(!formInput.rPass);
+    } else {
+      setNameInput(false);
+      setUserInput(false);
+      setPassInput(false);
+      setRpassInput(false);
+    }
+  };
 
-},[formInput])
+  useEffect(() => {
+    console.log(formInput);
+  }, [formInput]);
+
 
     return (
 
@@ -68,21 +61,21 @@ console.log(formInput);
         <form>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">nombre</label>
-          <input type="email" name='name' className={formname? "form-control is-invalid": "form-control"} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
+          <input type="text" className={nameInput ? "form-control is-invalid" : "form-control"} name='name'  id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
          
         </div>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">usuario</label>
-          <input type="email"  name='user' className={user? "form-control is-invalid": "form-control"}  id="exampleInputEmail1" aria-describedby="emailHelp"  onChange={handleChange}/>
+          <input type="text" className={userInput ? "form-control is-invalid" : "form-control"} name='user' id="exampleInputEmail1" aria-describedby="emailHelp"  onChange={handleChange}/>
           
         </div>
         <div className="mb-3">
           <label for="exampleInputPassword1" className="form-label">contraseña</label>
-          <input type="password" name='pass' className={pass? "form-control is-invalid": "form-control"}  id="exampleInputPassword1" onChange={handleChange}/>
+          <input type="password" className={passInput ? "form-control is-invalid" : "form-control"} name="pass"    id="exampleInputPassword1" onChange={handleChange}/>
         </div>
         <div className="mb-3">
           <label for="exampleInputPassword1" className="form-label">repetir contraseña</label>
-          <input type="password" name='reppas' className={reppas? "form-control is-invalid": "form-control"}  id="exampleInputPassword1" onChange={handleChange}/>
+          <input type="password"  className={rpassInput ? "form-control is-invalid" : "form-control"} name="rPass"  id="exampleInputPassword1" onChange={handleChange}/>
         </div>
         
         <button type="submit" className= "btn btn-primary" onClick={handleClick}>registrarse</button>

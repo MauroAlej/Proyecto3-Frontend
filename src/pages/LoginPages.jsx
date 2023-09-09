@@ -40,7 +40,10 @@ const LoginPages = () => {
 
   return (
     <>
-      <div className='d-flex justify-content-center'>
+
+     
+      <div className='d-flex justify-content-center '>
+   
         <form>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">usuario</label>
@@ -66,6 +69,7 @@ const LoginPages = () => {
           <button className='para-face'>Continuar con Facebook <img src="/public/facebook.png" alt="" className='gmil-a ms-1' /></button>
         </div>
       </div>
+   
     </>
   );
 };
