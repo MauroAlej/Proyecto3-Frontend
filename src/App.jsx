@@ -10,9 +10,8 @@ const App =() => {
 
   return(
     <Router>
-    <Navbar/>
- <RoutesView/>
-
+    
+      <RoutesView/>
  
   </Router>
   )
