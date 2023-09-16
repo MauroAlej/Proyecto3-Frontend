@@ -7,28 +7,33 @@ const TablaUsuarios = () => {
     <thead>
       <tr>
         <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Username</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Mail</th>
+        <th>Telefono</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>Samuel</td>
+        <td>Lapetina</td>
+        <td>Sam@gmail.com</td>
+        <td>3813587825</td>
       </tr>
       <tr>
         <td>2</td>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
+        <td>Mauro</td>
+        <td>Juarez</td>
+        <td>@gmail.com</td>
+        <td>3813587825</td>
       </tr>
       <tr>
         <td>3</td>
-        <td colSpan={2}>Larry the Bird</td>
-        <td>@twitter</td>
+        <td>Mauro</td>
+        <td>Juarez</td>
+        <td>@gmail.com</td>
+        <td>3813587825</td>
       </tr>
     </tbody>
   </Table>
