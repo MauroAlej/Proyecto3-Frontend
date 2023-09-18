@@ -4,6 +4,7 @@ import {BrowserRouter as Router} from "react-router-dom"
 import RoutesView from "./routes/RoutesView";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import ContactPage from "./pages/ContactPage";
 
 const App =() => {
 
@@ -11,7 +12,7 @@ const App =() => {
     <Router>
       <Navbar/>
       <RoutesView/>
- 
+
   </Router>
   )
 }
