@@ -6,7 +6,6 @@ import CardProd from '../components/card'
 const HomePage = () => {
   return (
     <>
-    <Navbar/>
     <CardProd/>
     </>
   )
