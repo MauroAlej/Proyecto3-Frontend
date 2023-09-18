@@ -19,8 +19,12 @@ const HomePage = () => {
 
   return (
     <>
-    <Navbar/>
-    <CardProd/>
+    <div className="container">
+      <div className="row">
+        <CardProd array = {products}/>
+      </div>
+    </div>
+    
     </>
   )
 }

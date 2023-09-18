@@ -24,7 +24,7 @@ const Navbar = () => {
         
           
         </ul>
-        <a className="nav-link"  href='/login'>iniciar secion</a>
+        <a className="nav-link"  href='/login'>iniciar sesion</a>
         <a className="nav-link"  href='/register'>registrarse</a>
       </div>
     </div>
