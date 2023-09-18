@@ -9,7 +9,7 @@ const App =() => {
 
   return(
     <Router>
-    
+      <Navbar/>
       <RoutesView/>
  
   </Router>
