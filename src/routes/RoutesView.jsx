@@ -1,3 +1,4 @@
+
 import {  Routes, Route } from "react-router-dom";
 import React from 'react';
 // import {Routes, Route} from "react-router-dom";
@@ -19,8 +20,7 @@ const RoutesView = () => {
     <Route path='/about' element={<AboutPage/>}/>
     <Route path='/contact' element={<ContactPage/>}/>
     <Route path='/404' element={<NotFont/>}/>
-
-    <Route path='/cartUser' element={<CartPage/>}/>
+      <Route path='/cartUser' element={<CartPage/>}/>
 
     </Routes>
   )
