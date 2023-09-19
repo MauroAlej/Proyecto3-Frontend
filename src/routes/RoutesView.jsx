@@ -1,4 +1,3 @@
-
 import {  Routes, Route } from "react-router-dom";
 import React from 'react';
 // import {Routes, Route} from "react-router-dom";
@@ -11,13 +10,14 @@ import NotFont from "../pages/NotFont";
 import CartPage from "../pages/CartPage";
 
 
+
 const RoutesView = () => {
   return (
     <Routes>
       <Route path='/' element={<HomePage/>}/>
     <Route path='/login' element={<LoginPages/>}/>
     <Route path='/register' element={<RegisterPage/>}/>
-    <Route path='/about' element={<AboutPage/>}/>
+  <Route path='/about' element={<AboutPage/>}/>
     <Route path='/contact' element={<ContactPage/>}/>
     <Route path='/404' element={<NotFont/>}/>
       <Route path='/cartUser' element={<CartPage/>}/>
