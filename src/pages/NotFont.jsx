@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const NotFont = () => {
+
+const notFont = () => {
   return (
-   <div className='justify-content-center d-flex mt-5' >
-     <img src="../public/404.webp" alt="" />
-   </div>
-  )
-}
+    <div className='justify-content-center d-flex mt-5'>
+      <img src="../public/404.webp"alt="" />
+    </div>
+  );
+};
 
-export default NotFont
+export default notFont;
