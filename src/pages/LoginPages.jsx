@@ -29,7 +29,15 @@ const LoginPages = () => {
 
   const handleClick = async (ev) => {
     ev.preventDefault(); /* para que no me recargue la pagina */
-    if (formInput.user && formInput.pass) {
+    
+    ev.preventDefault() /* para que no me recargue la pagina */
+  if (formInput.user) {
+    if (formInput.pass) {
+      setUserInput(false)
+      setPassInput(false)
+    }}
+    
+    {
       const res = await fetch("http://localhost:2020/api/users/login", {
         method: "POST",
         headers: {
@@ -43,35 +51,21 @@ const LoginPages = () => {
       
       const data = await res.json();
       
-      if (res.status === 200) { 
-        localStorage.setItem("token", JSON.stringify(data.userUptade.token));
-        localStorage.setItem("role", JSON.stringify(data.userUptade.role));
-        localStorage.setItem("idUser", JSON.stringify(data.userUptade._id));
-        
-        if (data.userUptade.role === "admin") {
-          navigate("/admin"); 
-        } else if (data.userUptade.role === "user") {
-          navigate("/"); 
-        }
-      } else {
-        Swal.fire({
-          title: 'usuario no registrado',
-        
-          icon: 'error',
-          confirmButtonText: 'Cool'
-        })
-        ;
-      }
-    } else {
-      setUserInput(true);
-      setPassInput(true);
-      setRoleInput(true);
-    }
-  };
+ if (data.userUptade.role === "admin"){
+  localStorage.setItem("token", JSON.stringify(data.userUptade.token))
+  localStorage.setItem("role", JSON.stringify(data.userUptade.role))
+  localStorage.setItem("idUser", JSON.stringify(data.userUptade._id))
+  navigate("/admin")
+}else if (data.userUptade.role === "user"){
+  localStorage.setItem("token", JSON.stringify(data.userUptade.token))
+  localStorage.setItem("role", JSON.stringify(data.userUptade.role))
+  localStorage.setItem("idUser", JSON.stringify(data.userUptade._id))
+  navigate("/")
+}
+    }}
 
-  useEffect(() => {
-    console.log(formInput);
-  }, [formInput]);
+
+
 
   return (
     <>

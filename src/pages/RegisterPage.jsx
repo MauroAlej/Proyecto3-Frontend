@@ -89,7 +89,7 @@ const handleSubmit = async () => {
         "iniciar sesión para perfil",
         "success"
       );
-     
+     navigate("/")
     } 
   }
 };
