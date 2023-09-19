@@ -12,6 +12,9 @@ import Reserva from "../pages/Reserva";
 import AdminPage from "../pages/AdminPage";
 import EditProdPage from "../pages/EditProdPage";
 import CreateProdPage from "../pages/CreateProdPage";
+import AdminUserPage from "../pages/AdminUserPage";
+import CreateUserPage from "../pages/CreateUserPage";
+import EditUserPage from "../pages/EditUserPage";
 
 
 
@@ -29,6 +32,9 @@ const RoutesView = () => {
     <Route path='/admin' element={<AdminPage/>}/>
     <Route path='/editProd' element={<EditProdPage/>}/>
     <Route path='/createProd' element={<CreateProdPage/>}/>
+    <Route path='/adminUser' element={<AdminUserPage/>}/>
+    <Route path='/createUser' element={<CreateUserPage/>}/>
+    <Route path='/editUser' element={<EditUserPage/>}/>
     
 
     </Routes>
