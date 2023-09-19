@@ -1,0 +1,81 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* color: aliceblue; */
+  /* font-family: 'Stick No Bills', sans-serif; */
+
+}
+
+.about-us {
+  min-height: 100vh;
+  width: 100%;
+  padding: 100px 50px 50px 50px;
+  background-image: url("C:\Users\DELL\Desktop\Proyecto3-Frontend\src\assets\AboutUs\wasabi.jpg");
+  background-size: 100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.text{
+  font-size: 1.5em;
+  color: #FFFFFF;
+}
+
+.title-h1{
+  color: #FFFFFF;
+}
+
+.title-h3{
+  color: #FFFFFF;
+} 
+
+#texto{
+  /* display: inline-block; */
+  /* vertical-align: center; */
+  /* align-items: center; */
+  /* text-align: start; */
+  color: #FFFFFF;
+  font-size: 2rem;
+}
+
+#carla-alcorta{
+  width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+
+#carla-alcorta:hover{
+  border: 2px solid #BBBBBB;
+}
+
+#mauro-juarez{
+  width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+
+#mauro-juarez:hover{
+  border: 2px solid #BBBBBB;
+}
+
+#samuel-lapetina{
+  width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+
+#samuel-lapetina:hover{
+  border: 2px solid #BBBBBB;
+}
+
+#stefan-dios{
+  width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+
+#stefan-dios:hover{
+  border: 2px solid #BBBBBB;
+}

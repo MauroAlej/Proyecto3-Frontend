@@ -1,4 +1,54 @@
 .gmil-a{
-    width: 20px;
+    width: 14px;
   
 }
+
+.paf-gmail{
+    font-size: 14px;
+
+    border-radius: 40px;
+}
+.para-face{
+    font-size: 14px;
+
+  
+    border-radius: 40px;
+}
+.class-form {
+    background-color: rgba(255, 254, 254, 0.336);
+color: rgb(8, 8, 8);
+border-radius: 5px;
+}
+.class-login{
+    background-color: rgba(255, 254, 254, 0.336);
+    color: rgb(8, 8, 8);
+    border-radius: 5px;
+}
+.button-link {
+    display: inline-block; 
+    background-color: #1877f2; 
+    color: #fff;
+    padding: 5px 10px; 
+    text-decoration: none; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+  
+  .button-link:hover {
+    background-color: #1134a6; 
+  }
+  .button-like-link {
+    display: inline-block; 
+    background-color: #c60000bb; 
+    color: #fff; 
+    padding: 4px 8px; 
+    text-decoration: none; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+  
+  .button-like-link:hover {
+    background-color: #af0000; 
+  }
