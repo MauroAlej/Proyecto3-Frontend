@@ -6,6 +6,7 @@ import RegisterPage from '../pages/RegisterPage';
 import HomePage from '../page/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
+import NotFont from "../pages/notFont";
 
 
 const RoutesView = () => {
@@ -16,7 +17,7 @@ const RoutesView = () => {
     <Route path='/register' element={<RegisterPage/>}/>
     <Route path='/about' element={<AboutPage/>}/>
     <Route path='/contact' element={<ContactPage/>}/>
-
+    <Route path='/404' element={<NotFont/>}/>
     </Routes>
   )
 }
