@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
 import CardProd from '../components/card'
 
 
@@ -19,7 +18,12 @@ const HomePage = () => {
 
   return (
     <>
-    <CardProd/>
+    <div className="container">
+      <div className="row">
+        <CardProd array = {products}/>
+      </div>
+    </div>
+    
     </>
   )
 }
