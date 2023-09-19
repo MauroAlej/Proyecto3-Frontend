@@ -6,7 +6,20 @@ import { Link } from 'react-router-dom';
 const CardProd = ({array}) => {
 
   const handleClick = async(id)=>{
-    console.log(id)
+    const idUser = JSON.parse(localStorage.getItem('idUser'))
+    const resCart = await fetch(`http://localhost:2020/api/users/${idUser}`)
+    const dataCart = await resCart.json()
+    
+    const idCart = dataCart.getUser.idCart
+    const resProd = await fetch(`http://localhost:2020/api/cart/${idCart}/${id}`,{
+      method: 'POST',
+      headers:{
+        "content-type":"application/json"
+      }
+    })
+    const dataProd = await resProd.json()
+    
+
   }
 
   return (
