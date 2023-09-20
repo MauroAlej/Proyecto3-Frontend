@@ -8,6 +8,7 @@ const RegisterPage = () => {
   const [userInput,setUserInput]= useState(false)
   const [passInput,setPassInput]= useState(false) 
    const [repeatPassInput,setRepeatPassInput]= useState(false)
+   const [passwordLengthError, setPasswordLengthError] = useState(false);
   const [formInputs, setFormInputs] = useState({
     name: '',
     user: '',
@@ -45,27 +46,40 @@ useEffect(()=>{
 
 
 const handleSubmit = async () => {
-  // Reiniciar todas las variables de estado relacionadas con la validación
  
+  setNameInput(false);
+  setUserInput(false);
+  setPassInput(false);
+  setRepeatPassInput(false);
+  setPasswordLengthError(false); 
+
+
+  if (!formInputs.name) {
+    setNameInput(true);
+  }
+  if (!formInputs.user) {
+    setUserInput(true);
+  }
+  if (!formInputs.pass) {
+    setPassInput(true);
+  }
+  if (!formInputs.repeatPass) {
+    setRepeatPassInput(true);
+  }
+  
+  // Validar la longitud de la contraseña
+  if (formInputs.pass.length < 8) {
+    setPassInput(true);
+    setPasswordLengthError(true); // Establecer el estado para el mensaje de error de longitud
+  }
+
+  // Verificar la igualdad de las contraseñas y la longitud antes de enviar la solicitud al servidor
+  if (
+    formInputs.pass === formInputs.repeatPass &&
+    formInputs.pass.length >= 8
+  ) 
 
   // Validar individualmente cada campo y establecer las variables de estado según sea necesario
-  if (formInputs.name) {
-    setNameInput(false);
-  }
-  if (formInputs.user) {
-    setUserInput(false);
-  }
-  if (formInputs.pass) {
-    setPassInput(false);
-  }
-  if (formInputs.repeatPass) {
-    setRepeatPassInput(false);
-  }else{
-    setNameInput(true)
-  setUserInput(true)
-  setPassInput(true)
-    setRepeatPassInput(true)
-  }
 
   // Verificar la igualdad de las contraseñas
   if (formInputs.pass === formInputs.repeatPass) {
@@ -127,6 +141,7 @@ const handleSubmit = async () => {
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label ">Contraseña</label>
             <input type="password" name='pass' onChange={handleChange} className={passInput? "form-control is-invalid": "form-control"} id="exampleInputPassword1" />
+            {passwordLengthError && <div className="invalid-feedback">La contraseña debe tener al menos 8 caracteres.</div>}
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputPassword2" className="form-label">Repetir Contraseña</label>
