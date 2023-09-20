@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import Swal from 'sweetalert2';
 
+
 const LoginPages = () => {
   const [formInput, setFormInput] = useState({
     user: "",
@@ -11,7 +12,7 @@ const LoginPages = () => {
   const [userInput, setUserInput] = useState(false);
   const [passInput, setPassInput] = useState(false);
   
-  const [roleInput, setRoleInput] = useState(false);
+  
   const navigate = useNavigate(); // Obtiene la función navigate
 
   const handleChange = (ev) => {
@@ -26,18 +27,12 @@ const LoginPages = () => {
    
   }
   ;
-
   const handleClick = async (ev) => {
-    ev.preventDefault(); /* para que no me recargue la pagina */
-    
-    ev.preventDefault() /* para que no me recargue la pagina */
-  if (formInput.user) {
-    if (formInput.pass) {
-      setUserInput(false)
-      setPassInput(false)
-    }}
-    
-    {
+    ev.preventDefault();
+    if (formInput.user && formInput.pass) {
+      setUserInput(false);
+      setPassInput(false);
+  
       const res = await fetch("http://localhost:2020/api/users/login", {
         method: "POST",
         headers: {
@@ -45,25 +40,51 @@ const LoginPages = () => {
         },
         body: JSON.stringify({
           usuario: formInput.user,
-          contrasenia: formInput.pass
-        })
+          contrasenia: formInput.pass,
+        }),
       });
-      
+  
       const data = await res.json();
+  
+      if (res.status === 200) {
+        if (data.userUptade.role === "admin") {
+          localStorage.setItem("token", JSON.stringify(data.userUptade.token));
+          localStorage.setItem("role", JSON.stringify(data.userUptade.role));
+          localStorage.setItem("idUser", JSON.stringify(data.userUptade._id));
+          navigate("/admin");
       
- if (data.userUptade.role === "admin"){
-  localStorage.setItem("token", JSON.stringify(data.userUptade.token))
-  localStorage.setItem("role", JSON.stringify(data.userUptade.role))
-  localStorage.setItem("idUser", JSON.stringify(data.userUptade._id))
-  navigate("/admin")
-}else if (data.userUptade.role === "user"){
-  localStorage.setItem("token", JSON.stringify(data.userUptade.token))
-  localStorage.setItem("role", JSON.stringify(data.userUptade.role))
-  localStorage.setItem("idUser", JSON.stringify(data.userUptade._id))
-  navigate("/")
-}
-    }}
-
+          // Mostrar SweetAlert de éxito
+          Swal.fire({
+            icon: 'success',
+            title: 'Inicio de sesión exitoso',
+            text: 'Has iniciado sesión como administrador.',
+          });
+        } else if (data.userUptade.role === "user") {
+          localStorage.setItem("token", JSON.stringify(data.userUptade.token));
+          localStorage.setItem("role", JSON.stringify(data.userUptade.role));
+          localStorage.setItem("idUser", JSON.stringify(data.userUptade._id));
+          navigate("/");
+      
+          // Mostrar SweetAlert de éxito
+          Swal.fire({
+            icon: 'success',
+            title: 'Inicio de sesión exitoso',
+            text: 'Has iniciado sesión como usuario.',
+          });
+        }
+      } else {
+        // Mostrar un mensaje de error en caso de fallo de autenticación
+        Swal.fire({
+          icon: 'error',
+          title: 'usuario no registrado',
+       
+        });
+      }
+    } else {
+      setUserInput(true);
+      setPassInput(true);
+    }
+  };
 
 
 
@@ -117,3 +138,8 @@ const LoginPages = () => {
 };
 
 export default LoginPages;
+
+
+
+
+
