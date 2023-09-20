@@ -58,6 +58,8 @@ const EditProdPage = () => {
         }
     }
 
+    
+
     useEffect(() => {
         getProduct()
         setReloadPage(false)
