@@ -83,7 +83,7 @@ const AdminUserPage = () => {
   <tbody>
     {
       users.map((usuario) => 
-        <tr>
+        <tr key={usuario._id}>
           <th scope="row">{usuario._id}</th>
           <td>{usuario.nombre}</td>
           <td>{usuario.usuario}</td>

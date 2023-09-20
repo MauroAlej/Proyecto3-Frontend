@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2'
@@ -7,17 +7,25 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { useParams } from 'react-router-dom';
 
 
 const FormReserva = () => {
   const [formValue, setFormValue] = useState({
-    nombreUsuario: '',
+    nombre: '',
     invitados: '',
     motivo: '',
     role: 'user',
     login: true,
     deleted: false
   })
+}
+  const getAllUsers = async () => {
+    const res = await fetch('http://localhost:2020/api/users')
+    const { allUsers } = await res.json()
+    setFormValue({
+      name: allUsers.nombre
+    })
 
   const handleChange = (ev) => {
     const {name, value} = ev.target
@@ -42,6 +50,10 @@ const FormReserva = () => {
     }
     
   }
+  
+  useEffect(() => {
+    getAllUsers()
+}, [])
 
  /*  const errorMessage = Validate(nombreUsuario, invitados, motivo); */
 
@@ -52,7 +64,7 @@ const FormReserva = () => {
      <Form>
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
       <Form.Label>Nombre</Form.Label>
-      <Form.Control type="text" name='nombreUsuario' onChange={handleChange} placeholder="nombre" required/>
+      <Form.Control type="text" name='nombreUsuario' value={formValue.name} onChange={handleChange} placeholder="nombre" required/>
     </Form.Group>
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
       <Form.Label>Cantidad de Invitados</Form.Label>

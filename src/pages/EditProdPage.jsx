@@ -67,15 +67,15 @@ const EditProdPage = () => {
    <>
    <form>
   <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Nombre</label>
+    <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
     <input type="text" name='name' value={formValues.name} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
 </div>
   <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Precio</label>
+    <label htmlFor="exampleInputPassword1" className="form-label">Precio</label>
     <input type="number" name='price' value={formValues.price} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword1" onChange={handleChange}/>
   </div>
   <div className="mb-3">
-    <label for="exampleInputPassword2" className="form-label">Estado</label>
+    <label htmlFor="exampleInputPassword2" className="form-label">Estado</label>
     <input type="text" name='status' value={formValues.status} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange}/>
   </div>
   <button type="submit" className="btn btn-primary" onClick={handleClick}>Editar</button>
