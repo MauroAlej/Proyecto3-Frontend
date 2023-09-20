@@ -52,3 +52,6 @@ border-radius: 5px;
   .button-like-link:hover {
     background-color: #af0000; 
   }
+  .class-foter{
+    width: 50px;
+  }
