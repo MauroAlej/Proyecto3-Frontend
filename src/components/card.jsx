@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
+
 const CardProd = ({array}) => {
 
   const handleClick = async(id)=>{
@@ -17,7 +18,22 @@ const CardProd = ({array}) => {
         "content-type":"application/json"
       }
     })
-    const dataProd = await resProd.json()
+    const dataProd = await resProd.json() 
+    
+    if(dataProd.status === 400){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: dataProd.msg,
+    
+      })
+    }else{
+      Swal.fire(
+        'Good job!',
+        dataProd.msg,
+        'success'
+      )
+    }
     
 
   }
@@ -28,12 +44,12 @@ const CardProd = ({array}) => {
     {
      array.map((prod)=>
      
-      <Card key ={prod._id} style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+       <Card key ={prod._id} style={{ width: '18rem' }} >
+    
           <Card.Body>
             <Card.Title>{prod.nombre}</Card.Title>
-            <Card.Text>
-              {prod.precio}
+            <Card.Text className='text-dark'>
+              ${prod.precio}
             </Card.Text>
             <Link></Link>
             <button className='btn btn-outline-success' onClick={()=> handleClick(prod._id)}>Agregar Carrito</button>
