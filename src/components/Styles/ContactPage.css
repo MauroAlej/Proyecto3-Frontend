@@ -1,38 +1,31 @@
-body {
-  background-color: #DFD5C9 !important;
+.contact-container {
+  background-image: url('C:\Users\DELL\Desktop\Proyecto3-Frontend\src\assets\Contact\Pastas.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 50px; 
 }
 
-.container {
-  margin-top: 30px;
+.contact-container::before {
+  content: "";
+  background-image: url('C:\Users\DELL\Desktop\Proyecto3-Frontend\src\assets\Contact\Pastas.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
+
 
 .form-group {
   margin-bottom: 20px;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-
-.col-md-6 {
-  margin-bottom: 20px;
-}
-
-h2 {
-  color: #007bff;
-}
-
-p {
-  font-size: 1.1em;
-}
-
-/* Estilos para el formulario */
 .form-control {
   border: 1px solid #ced4da;
   border-radius: 0;
@@ -43,7 +36,23 @@ p {
   box-shadow: none;
 }
 
-/* Estilos para el botón */
+
+#color-title {
+  color: #f9f9f9;
+}
+
+p {
+  color: #ffffff;
+  font-size: 1.1em;
+}
+
+.img-fluid {
+  width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 5%;
+}
+
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
@@ -53,42 +62,4 @@ p {
 .btn-primary:hover {
   background-color: #0056b3;
   border-color: #0056b3;
-}
-
-/* Estilos para la información de contacto */
-.contact-info p {
-  font-size: 1.1em;
-}
-
-/* Estilos para los márgenes y espaciado */
-.margin-bottom-30 {
-  margin-bottom: 30px;
-}
-
-.margin-bottom-20 {
-  margin-bottom: 20px;
-}
-
-.margin-top-20 {
-  margin-top: 20px;
-}
-
-/* Estilos para el color de enlaces y resaltar */
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-/* .highlight {
-  background-color: #f9f9f9;
-} */
-
-/* Estilos para el contenedor principal */
-.container {
-  margin-top: 50px;
 }

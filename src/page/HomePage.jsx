@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CardProd from '../components/card'
+import Footer from '../components/Footer'
 
 
 const HomePage = () => {
@@ -22,6 +23,12 @@ const HomePage = () => {
       <div className="row">
         <CardProd array = {products}/>
       </div>
+      <div>
+
+
+
+      </div>
+      
     </div>
     
     </>
