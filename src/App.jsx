@@ -6,6 +6,7 @@ import RoutesView from "./routes/RoutesView";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import ContactPage from "./pages/ContactPage";
+import Footer from "./components/Footer";
 
 
 const App =() => {
@@ -14,7 +15,7 @@ const App =() => {
     <Router>
       <Navbar/>
       <RoutesView/>
-
+<Footer/>
   </Router>
   )
 }

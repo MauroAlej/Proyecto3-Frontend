@@ -64,3 +64,11 @@ border-radius: 5px;
 .button-hambur:focus {
   background-color: #ffffff; /* Cambia el color de fondo del botón al hacer clic */
 }
+.footer {
+  background-color: #d9ab86;
+  color: #080606;
+ 
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
