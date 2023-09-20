@@ -28,7 +28,7 @@ useEffect(() => {
       <img src="../public/logonombre.png" alt="Logo" width={"30px"} />
     </Link>
     <button className="navbar-toggler button-hambur" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon class-hola"></span>
+      <span className="navbar-toggler-icon class-hambur"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
