@@ -7,6 +7,7 @@ const EditUserPage = () => {
     const params = useParams()
     const navigate = useNavigate()
     const [inputCheckForms, setInputCheckForms] = useState(false)
+    const [reloadPage, setReloadPage] = useState(false)
     const [formValues, setFormValues] = useState({
         name:'',
         userName:'',
@@ -69,24 +70,25 @@ const EditUserPage = () => {
             }, 1500);
         }
     }
-
     useEffect(() => {
         getUsers()
-    }, [])
+        setReloadPage(false)
+    }, [reloadPage])
+
 
   return (
    <>
    <form>
   <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Nombre</label>
+    <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
     <input type="text" name='name' value={formValues.name} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
 </div>
   <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Usuario</label>
+    <label htmlFor="exampleInputPassword1" className="form-label">Usuario</label>
     <input type="text" name='userName' value={formValues.userName} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword1" onChange={handleChange}/>
   </div>
   <div className="mb-3">
-    <label for="exampleInputPassword2" className="form-label">Role</label>
+    <label htmlFor="exampleInputPassword2" className="form-label">Role</label>
     <input type="text" name='role' value={formValues.role} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange}/>
   </div>
   <button type="submit" className="btn btn-primary" onClick={handleClick}>Editar</button>

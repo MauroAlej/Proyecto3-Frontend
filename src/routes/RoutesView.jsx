@@ -30,11 +30,11 @@ const RoutesView = () => {
     <Route path='/cartUser' element={<CartPage/>}/>
     <Route path='/reserva' element={<Reserva/>}/>
     <Route path='/admin' element={<AdminPage/>}/>
-    <Route path='/editProd' element={<EditProdPage/>}/>
+    <Route path='/editProd/:id' element={<EditProdPage/>}/>
     <Route path='/createProd' element={<CreateProdPage/>}/>
     <Route path='/adminUser' element={<AdminUserPage/>}/>
     <Route path='/createUser' element={<CreateUserPage/>}/>
-    <Route path='/editUser' element={<EditUserPage/>}/>
+    <Route path='/editUser/:id' element={<EditUserPage/>}/>
     
 
     </Routes>

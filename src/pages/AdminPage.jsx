@@ -78,7 +78,7 @@ const AdminPage = () => {
   <tbody>
     {
       products.map((producto) => 
-        <tr>
+        <tr key={producto._id}>
           <th scope="row">{producto._id}</th>
           <td>{producto.nombre}</td>
           <td>{producto.precio}</td>
