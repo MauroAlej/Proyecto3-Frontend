@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import CardProd from '../components/card'
-import Footer from '../components/Footer'
+import CardProd from '../components/Card'
+
 
 
 const HomePage = () => {
