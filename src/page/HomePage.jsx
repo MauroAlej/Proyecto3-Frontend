@@ -23,11 +23,7 @@ const HomePage = () => {
       <div className="row">
         <CardProd array = {products}/>
       </div>
-      <div>
-
-
-
-      </div>
+    
       
     </div>
     
