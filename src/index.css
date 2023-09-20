@@ -52,6 +52,15 @@ border-radius: 5px;
   .button-like-link:hover {
     background-color: #af0000; 
   }
-  .class-foter{
-    width: 50px;
-  }
+ .class-navar{
+  background-color: #121b2f;
+ }
+
+ .class-hola{
+  background-color: #ffffff; /* Cambia el color de fondo del botón */
+}
+
+/* Cambiar el color del botón de hamburguesa cuando se hace clic */
+.button-hambur:focus {
+  background-color: #ffffff; /* Cambia el color de fondo del botón al hacer clic */
+}
