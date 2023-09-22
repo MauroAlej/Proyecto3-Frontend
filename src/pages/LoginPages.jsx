@@ -51,7 +51,7 @@ const LoginPages = () => {
           localStorage.setItem("token", JSON.stringify(data.userUptade.token));
           localStorage.setItem("role", JSON.stringify(data.userUptade.role));
           localStorage.setItem("idUser", JSON.stringify(data.userUptade._id));
-          navigate("/admin");
+          navigate("/adminUser");
       
           // Mostrar SweetAlert de éxito
           Swal.fire({
