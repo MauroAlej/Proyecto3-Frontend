@@ -80,31 +80,34 @@ const CreateUserPage = () => {
     }
 
   return (
-   <>
-   <form>
+  <div className='d-flex justify-content-center mt-5'>
+    <form>
   <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Nombre</label>
+    <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
     <input type="text" name='name' value={formValues.name} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
 </div>
 <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Usuario</label>
-    <input type="text" name='userName' value={formValues.userName} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
+    <label htmlFor="exampleInputEmail2" className="form-label">Usuario</label>
+    <input type="text" name='userName' value={formValues.userName} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail2" aria-describedby="emailHelp" onChange={handleChange}/>
 </div>
   <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Contraseña</label>
+    <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
     <input type="password" name='pass' value={formValues.pass} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword1" onChange={handleChange}/>
   </div>
   <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Repetir Contraseña</label>
-    <input type="password" name='rpass' value={formValues.rpass} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword1" onChange={handleChange}/>
+    <label htmlFor="exampleInputPassword2" className="form-label">Repetir Contraseña</label>
+    <input type="password" name='rpass' value={formValues.rpass} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange}/>
   </div>
   <div className="mb-3">
-    <label for="exampleInputPassword2" className="form-label">Role</label>
-    <input type="text" name='role' value={formValues.role} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange}/>
-  </div>
+  <select class="form-select" aria-label="Default select example">
+  <option value="1">Administrador</option>
+  <option value="2">Usuario</option>
+  </select>
+    </div>
+  
   <button type="submit" className="btn btn-primary" onClick={handleClick}>Crear Usuario</button>
 </form>
-   </>
+  </div>
   )
 }
 

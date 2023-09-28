@@ -66,8 +66,8 @@ const EditProdPage = () => {
     }, [reloadPage])
 
   return (
-   <>
-   <form>
+ <div className='d-flex justify-content-center mt-5'>
+    <form>
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
     <input type="text" name='name' value={formValues.name} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
@@ -82,7 +82,7 @@ const EditProdPage = () => {
   </div>
   <button type="submit" className="btn btn-primary" onClick={handleClick}>Editar</button>
 </form>
-   </>
+ </div>
   )
 }
 

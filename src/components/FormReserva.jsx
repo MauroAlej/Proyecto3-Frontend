@@ -55,8 +55,8 @@ const handleChange = (ev) => {
 
   return (
 
-
-   <div className='d-flex w-50 mt-5 justify-content-center'>
+  <div className='d-flex w-50 mt-5 justify-content-center'>
+    
      <Form>
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
       <Form.Label>Nombre</Form.Label>
@@ -96,6 +96,9 @@ const handleChange = (ev) => {
   </Form>
 
    </div>
+  
+
+  
   )
 }
 
