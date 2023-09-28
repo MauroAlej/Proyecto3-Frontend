@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import CardProd from '../components/card'
+import CardProd from '../components/Card'
 
 
 

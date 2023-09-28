@@ -3,7 +3,7 @@ import React from 'react';
 // import {Routes, Route} from "react-router-dom";
 import LoginPages from '../pages/LoginPages';
 import RegisterPage from '../pages/RegisterPage';
-import HomePage from '../page/HomePage';
+import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import NotFont from "../pages/NotFont";

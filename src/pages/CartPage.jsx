@@ -45,6 +45,20 @@ const CartPage = () => {
      }
   }
 
+  const handleClickMP = async () =>{
+    const res = await fetch('http://localhost:2020/api/pay',{
+      method: 'POST',
+      headers: {
+        "content-type": "application/json"
+      },
+    
+    })
+
+    const data = await res.json()
+    location.href = `${data.res.init_pointpu}`
+  }
+
+
   useEffect(() => {
     getCartUser()
   },[])
@@ -60,7 +74,6 @@ const CartPage = () => {
       <table className="table">
     <thead>
       <tr>
-        <th scope="col">ID producto</th>
         <th scope="col">Nombre</th>
         <th scope="col">Precio</th>
         <th scope="col">Cantidad</th>
@@ -71,8 +84,8 @@ const CartPage = () => {
       {
         cart.map((producto) => 
         <tr key= {producto._id}>
-        <th scope="row">{producto._id}</th>
-        <td>{producto.nombre}</td>
+      
+        <td scope="row">{producto.nombre}</td>
         <td>{producto.precio}</td>
         <td>
           <input type="number" className='w-25' onChange={(ev) => handleChange(ev,producto._id)}/>
@@ -88,7 +101,7 @@ const CartPage = () => {
   </table>  
 
   <div className='d-flex justify-content-between px-5'>
-  <button className='btn btn-primary'>Pagar</button>
+  <button className='btn btn-primary'onClick={handleClickMP}>Pagar</button>
     <h2>{suma}</h2>
   </div>
   

@@ -72,12 +72,19 @@ const handleSubmit = async () => {
     setPassInput(true);
     setPasswordLengthError(true); // Establecer el estado para el mensaje de error de longitud
   }
+  if (formInputs.pass !== formInputs.repeatPass) {
+    // Mostrar un Swal de error
+    Swal.fire(
+      'Error',
+      'Las contraseñas no coinciden. Por favor, inténtalo de nuevo.',
+      'error'
+    );
+    return; // Salir de la función sin enviar la solicitud al servidor
+  }
 
-  // Verificar la igualdad de las contraseñas y la longitud antes de enviar la solicitud al servidor
-  if (
-    formInputs.pass === formInputs.repeatPass &&
-    formInputs.pass.length >= 8
-  ) 
+  // Resto del código para enviar la solicitud al servidor...
+
+  
 
   // Validar individualmente cada campo y establecer las variables de estado según sea necesario
 
@@ -130,10 +137,18 @@ const handleSubmit = async () => {
  <div className='d-flex justify-content-center mt-5'>
         <form  className='class-form'>
           
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail3" className="form-label">Nombre y Apellido</label>
-            <input type="text" name='name' className={ nameInput ? "form-control is-invalid": "form-control"} id="exampleInputEmail3" aria-describedby="emailHelp" onChange={handleChange} />
-          </div>
+        <div className="mb-3">
+  <label htmlFor="exampleInputEmail3" className="form-label">Nombre y Apellido</label>
+  <input
+    type="text"
+    name="name"
+    className={nameInput ? "form-control is-invalid" : "form-control"}
+    id="exampleInputEmail3"
+    aria-describedby="emailHelp"
+    onChange={handleChange}
+    maxLength={10} // Establece el máximo de 50 caracteres
+  />
+</div>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Usuario</label>
             <input type="text" name='user' className={userInput? "form-control is-invalid": "form-control"} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange} />
