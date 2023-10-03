@@ -156,7 +156,7 @@ const handleSubmit = async () => {
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label ">Contraseña</label>
             <input type="password" name='pass' onChange={handleChange} className={passInput? "form-control is-invalid": "form-control"} id="exampleInputPassword1" />
-            {passwordLengthError && <div className="invalid-feedback">La contraseña debe tener al menos 8 caracteres.</div>}
+            {passwordLengthError && <div className=" class-error">La contraseña debe tener al menos 8 caracteres.</div>}
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputPassword2" className="form-label">Repetir Contraseña</label>

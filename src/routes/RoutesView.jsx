@@ -26,7 +26,7 @@ const RoutesView = () => {
     <Route path='/register' element={<RegisterPage/>}/>
     <Route path='/about' element={<AboutPage/>}/>
     <Route path='/contact' element={<ContactPage/>}/>
-    <Route path='/404' element={<NotFont/>}/>
+    <Route path='*' element={<NotFont/>}/>
     <Route path='/cartUser' element={<CartPage/>}/>
     <Route path='/reserva' element={<Reserva/>}/>
     <Route path='/admin' element={<AdminPage/>}/>
