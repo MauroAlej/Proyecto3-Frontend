@@ -47,6 +47,7 @@ const CardProd = ({array}) => {
        <Card key ={prod._id} style={{ width: '18rem' }} >
     
           <Card.Body>
+            <Card.Img variant="top" src={prod.imagen} />
             <Card.Title>{prod.nombre}</Card.Title>
             <Card.Text className='text-dark'>
               ${prod.precio}
