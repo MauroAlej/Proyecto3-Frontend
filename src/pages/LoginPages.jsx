@@ -121,12 +121,12 @@ const LoginPages = () => {
       </div>
       <div className='container d-flex justify-content-center'>
       <div className='mt-5'>
-      <a href="/404" className='button-like-link'>
+      <a href="*" className='button-like-link'>
     Iniciar con Gmail<img src="/public/Gmail_29991.ico" alt="" className='gmil-a ms-1' />
   </a>
 </div>
         <div className='mt-5 ms-5'>
-        <a href="/404" className='para-face button-link'>
+        <a href="*" className='para-face button-link'>
     
       Iniciar con Facebook <img src="/public/facebook.png" alt="" className='gmil-a ms-1' />
     

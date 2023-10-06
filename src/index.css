@@ -15,7 +15,7 @@
     border-radius: 40px;
 }
 .class-form {
-    background-color: rgba(255, 254, 254, 0.336);
+    background-color: rgba(255, 254, 254, 0.568);
 color: rgb(8, 8, 8);
 border-radius: 5px;
 }
@@ -64,6 +64,7 @@ border-radius: 5px;
 .button-hambur:focus {
   background-color: #ffffff; /* Cambia el color de fondo del botón al hacer clic */
 }
+<<<<<<< HEAD
 
 
 
@@ -89,3 +90,20 @@ border-radius: 5px;
 }
 
 /* css formulario reserva */
+=======
+.class-footer {
+  background-color: #d9ab86;
+  font-family: "Arial", sans-serif;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px; /* Añade espacio entre el contenido y el footer */
+}
+.class-error{
+  font-family: Arial, sans-serif; /* Cambia la fuente a Arial o cualquier otra fuente que desees */
+   /* Cambia el tamaño de la fuente a 16px o el tamaño que prefieras */
+   font-size: 16px;
+   color: #af0000;
+}
+>>>>>>> 1a58a93b4148b3847a7207338782f1385b308fe5

@@ -146,17 +146,17 @@ const handleSubmit = async () => {
     id="exampleInputEmail3"
     aria-describedby="emailHelp"
     onChange={handleChange}
-    maxLength={10} // Establece el máximo de 50 caracteres
+    maxLength={20} // Establece el máximo de 50 caracteres
   />
 </div>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Usuario</label>
-            <input type="text" name='user' className={userInput? "form-control is-invalid": "form-control"} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange} />
+            <input type="text" name='user' className={userInput? "form-control is-invalid": "form-control"} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}  maxLength={20}  />
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label ">Contraseña</label>
             <input type="password" name='pass' onChange={handleChange} className={passInput? "form-control is-invalid": "form-control"} id="exampleInputPassword1" />
-            {passwordLengthError && <div className="invalid-feedback">La contraseña debe tener al menos 8 caracteres.</div>}
+            {passwordLengthError && <div className=" class-error">La contraseña debe tener al menos 8 caracteres.</div>}
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputPassword2" className="form-label">Repetir Contraseña</label>
