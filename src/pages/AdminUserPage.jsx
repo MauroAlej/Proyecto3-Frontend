@@ -39,7 +39,7 @@ const AdminUserPage = () => {
             .then(res => {
               if (res.status === 200) {
                 swalWithBootstrapButtons.fire(
-                  'Eliminado!',
+                  'Uusuario Eliminado!',
                   'success'
                 )
               }
@@ -69,7 +69,27 @@ const AdminUserPage = () => {
  
   return (
    <>
-   <Link to={'createUser'} className='btn btn-primary'>Crear Nuevo Usuario</Link>
+
+<style>
+    {`
+      body {
+        background-image: url("../public/fondo-01.jpg"); /* Reemplaza 'ruta-de-la-imagen.jpg' con la ruta de tu imagen */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+        background-repeat: no-repeat; /* Evita la repetición de la imagen */
+        background-attachment: fixed; /* Fija la imagen para que no se desplace con el contenido */
+        /* Agrega cualquier otra propiedad CSS que desees */
+        color: #fff
+        
+        }
+     
+    `}
+  </style>
+
+  <div className='d-flex mt-5 mb-3 mx-5'> 
+<Link  to={'createUser'} className='btn btn-danger'>Crear Nuevo Usuario</Link>
+  </div>
+  
+   <div className='d-flex mx-5 color-table'>
    <table className="table">
   <thead>
     <tr>
@@ -98,6 +118,7 @@ const AdminUserPage = () => {
     
   </tbody>
 </table>
+   </div>
    </>
   )
 }
