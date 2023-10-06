@@ -64,6 +64,33 @@ border-radius: 5px;
 .button-hambur:focus {
   background-color: #ffffff; /* Cambia el color de fondo del botón al hacer clic */
 }
+
+
+
+
+/* css formulario reserva */
+.color-btn{
+  display: inline-block; 
+    background-color: #c60000bb; 
+    color: #fff; 
+    padding: 4px 8px; 
+    text-decoration: none; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.color-text {
+  color: #fff;
+}
+
+
+.table {
+  background-color: #af0000;
+}
+
+/* css formulario reserva */
+
 .class-footer {
   background-color: #d9ab86;
   font-family: "Arial", sans-serif;
@@ -79,3 +106,4 @@ border-radius: 5px;
    font-size: 16px;
    color: #af0000;
 }
+

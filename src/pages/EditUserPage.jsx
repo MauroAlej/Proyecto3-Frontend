@@ -77,8 +77,24 @@ const EditUserPage = () => {
 
 
   return (
-   <>
-   <form>
+    <>
+        <style>
+    {`
+      body {
+        background-image: url("../public/fondo-01.jpg"); /* Reemplaza 'ruta-de-la-imagen.jpg' con la ruta de tu imagen */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+        background-repeat: no-repeat; /* Evita la repetición de la imagen */
+        background-attachment: fixed; /* Fija la imagen para que no se desplace con el contenido */
+        /* Agrega cualquier otra propiedad CSS que desees */
+        color: #fff
+        
+        }
+     
+    `}
+  </style>
+  
+  <div className='d-flex justify-content-center mt-5'>
+     <form>
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
     <input type="text" name='name' value={formValues.name} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
@@ -93,7 +109,8 @@ const EditUserPage = () => {
   </div>
   <button type="submit" className="btn btn-primary" onClick={handleClick}>Editar</button>
 </form>
-   </>
+  </div>
+  </>
   )
 }
 
