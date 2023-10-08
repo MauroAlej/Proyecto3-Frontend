@@ -24,7 +24,7 @@ useEffect(() => {
    <>
   <nav className="navbar navbar-expand-lg class-navar">
   <div className="container-fluid">
-    <Link className="navbar-brand" to={role === 'admin' ? '/admin' : role === 'user' ? '/user' : '/'}>
+    <Link className="navbar-brand" to={role === 'admin' ? '/admin' : role === 'user' ? '/' : '/'}>
       <img src="../public/logonombre.png" alt="Logo" width={"30px"} />
     </Link>
     <button className="navbar-toggler button-hambur" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,12 +54,31 @@ useEffect(() => {
               <li className="nav-item">
                 <NavLink className="nav-link text-white" to="/contact">Contacto</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link text-white" to="/cartUser">Carrito</NavLink>
-              </li>
+              
             </>
         }
+        {
+          token && role === 'user'
+          ?
+          (<>
+            <li className="nav-item">
+                <NavLink className="nav-link text-white" to="/cartUser">Carrito</NavLink>
+              </li>
+            <li className="nav-item">
+            <NavLink className="nav-link text-white" to="/reserva">Reservas</NavLink>
+          </li>  
+          </>
+          )
+          :
+          <>
+          
+          </>
+        }
+        
+        
       </ul>
+
+      
 
       {/* Elementos para iniciar/cerrar sesión */}
       <ul className="navbar-nav ms-auto">

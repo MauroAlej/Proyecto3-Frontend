@@ -2,9 +2,12 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const CardProd = ({array}) => {
+
+
 
   const handleClick = async(id)=>{
     const idUser = JSON.parse(localStorage.getItem('idUser'))
@@ -29,7 +32,7 @@ const CardProd = ({array}) => {
       })
     }else{
       Swal.fire(
-        'Good job!',
+        'Excelente!',
         dataProd.msg,
         'success'
       )
@@ -52,7 +55,7 @@ const CardProd = ({array}) => {
             <Card.Text className='text-dark'>
               ${prod.precio}
             </Card.Text>
-            <Link></Link>
+            <Link to={`/product/${prod._id}`} className='btn btn-outline-info'>Ver Mas</Link>
             <button className='btn btn-outline-success' onClick={()=> handleClick(prod._id)}>Agregar Carrito</button>
           </Card.Body>
         </Card>

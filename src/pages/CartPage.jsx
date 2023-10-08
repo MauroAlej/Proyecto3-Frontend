@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 
 const CartPage = () => {
 
@@ -46,7 +47,16 @@ const CartPage = () => {
   }
 
   const handleClickMP = async () =>{
-    const res = await fetch('http://localhost:2020/api/pay',{
+
+    if(suma == 0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El valor de la compra no puede ser 0',
+        
+      })
+    }else{
+      const res = await fetch('http://localhost:2020/api/pay',{
       method: 'POST',
       headers: {
         "content-type": "application/json"
@@ -56,6 +66,9 @@ const CartPage = () => {
 
     const data = await res.json()
     location.href = `${data.res.init_pointpu}`
+    }
+
+    
   }
 
 
@@ -66,6 +79,10 @@ const CartPage = () => {
   useEffect(() => {
     getResult()
   },[cantidadState])
+
+  
+
+  
 
  
 
