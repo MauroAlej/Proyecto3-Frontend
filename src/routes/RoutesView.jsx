@@ -15,6 +15,7 @@ import CreateProdPage from "../pages/CreateProdPage";
 import AdminUserPage from "../pages/AdminUserPage";
 import CreateUserPage from "../pages/CreateUserPage";
 import EditUserPage from "../pages/EditUserPage";
+import ProductPage from "../pages/ProductPage";
 
 
 
@@ -22,6 +23,7 @@ const RoutesView = () => {
   return (
     <Routes>
     <Route path='/' element={<HomePage/>}/>
+    <Route path='/product/:id' element={<ProductPage/>}/>
     <Route path='/login' element={<LoginPages/>}/>
     <Route path='/register' element={<RegisterPage/>}/>
     <Route path='/about' element={<AboutPage/>}/>
