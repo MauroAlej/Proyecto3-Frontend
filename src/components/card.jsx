@@ -7,7 +7,9 @@ import Swal from 'sweetalert2';
 
 const CardProd = ({array}) => {
 
+  const token = JSON.parse(localStorage.getItem("token"))|| ""
 
+  const role = JSON.parse(localStorage.getItem("role"))|| ""
 
   const handleClick = async(id)=>{
     const idUser = JSON.parse(localStorage.getItem('idUser'))
@@ -56,7 +58,17 @@ const CardProd = ({array}) => {
               ${prod.precio}
             </Card.Text>
             <Link to={`/product/${prod._id}`} className='btn btn-outline-info'>Ver Mas</Link>
-            <button className='btn btn-outline-success' onClick={()=> handleClick(prod._id)}>Agregar Carrito</button>
+            
+            {token && role === 'user'
+            ?
+            (<button className='btn btn-outline-success' onClick={()=> handleClick(prod._id)}>Agregar Carrito</button>)
+            :
+            <></>
+            
+            
+            }
+
+
           </Card.Body>
         </Card>
         
