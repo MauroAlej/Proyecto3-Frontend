@@ -86,7 +86,7 @@ const AdminUserPage = () => {
   </style>
 
   <div className='d-flex mt-5 mb-3 mx-5'> 
-<Link  to={'createUser'} className='btn btn-danger'>Crear Nuevo Usuario</Link>
+<Link  to={'/createUser'} className='btn btn-danger'>Crear Nuevo Usuario</Link>
   </div>
   
    <div className='d-flex mx-5 color-table'>

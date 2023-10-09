@@ -104,7 +104,7 @@ const handleChange = (ev) => {
     </Form.Group>
 
 
-     <div className='d-flex mb-5 color-text'>
+     <div className='d-flex mb-5 color-text-white'>
        
      <LocalizationProvider name='fechaYhora' dateAdapter={AdapterDayjs} required>
       <DemoContainer
