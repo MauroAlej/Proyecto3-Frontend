@@ -1,5 +1,5 @@
 .contact-container {
-  background-image: url('C:\Users\DELL\Desktop\Proyecto3-Frontend\src\assets\Contact\Pastas.jpg');
+  background-color: #272C3E;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,7 +9,7 @@
 
 .contact-container::before {
   content: "";
-  background-image: url('C:\Users\DELL\Desktop\Proyecto3-Frontend\src\assets\Contact\Pastas.jpg');
+  background-color: #272C3E;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

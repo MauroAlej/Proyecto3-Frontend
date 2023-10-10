@@ -1,77 +1,149 @@
-import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
-function ContactForm() {
-const { handleSubmit, control, formState: { errors } } = useForm();
+const ContactForm = () => {
+  const [formValue, setFormValue] = useState({
+    user: "",
+    email: "",
+    message: "",
+  });
 
-const onSubmit = async (data) => {
-  try {
-    const response = await fetch('http://localhost:2020/enviar', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+  const [errors, setErrors] = useState({
+    user: "",
+    email: "",
+    message: "",
+  });
+
+  const [touched, setTouched] = useState({
+    user: false,
+    email: false,
+    message: false,
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (ev) => {
+    const { name, value } = ev.target;
+    setFormValue({ ...formValue, [name]: value });
+
+    if (touched[name]) {
+      validateField(name, value);
+    }
+  };
+
+  const handleBlur = (ev) => {
+    const { name, value } = ev.target;
+    setTouched({ ...touched, [name]: true });
+
+    validateField(name, value);
+  };
+
+  const validateField = (name, value) => {
+    let errorMessage = "";
+
+    if (name === "user" && !value.match(/^[A-Za-z\s]+$/)) {
+      errorMessage = "Por favor ingrese solo letras y espacios";
+    } else if (
+      name === "email" &&
+      !value.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)
+    ) {
+      errorMessage = "Por favor ingrese un correo electrónico válido";
+    } else if (name === "message" && value.length < 5) {
+      errorMessage = "El mensaje debe tener al menos 5 caracteres";
+    }
+
+    setErrors({ ...errors, [name]: errorMessage });
+  };
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+
+    setTouched({
+      user: true,
+      email: true,
+      message: true,
     });
 
-    const responseData = await response.json();
-    console.log(responseData);
-  } catch (error) {
-    console.error('Error al enviar el formulario:', error);
-  }
-}
+    try {
+      const response = await fetch("http://localhost:2020/api/contact/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValue),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormValue({ user: "", email: "", message: "" });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 2000);
+      } else {
+        console.error(data.message);
+      }
+    } catch (error) {
+      // console.error(error);
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-group">
-        <label htmlFor="nombre">Nombre</label>
-        <Controller
-          name="nombre"
-          control={control}
-          rules={{ required: 'Este campo es requerido' }}
-          render={({ field }) => <input {...field} className="form-control" />}
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <br />
+        <Form.Control
+          type="text"
+          name="user"
+          value={formValue.user}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="Nombre"
+          required
         />
-        {errors.nombre && <span className="text-danger">{errors.nombre.message}</span>}
-      </div>
-      <div className="form-group">
-        <label htmlFor="telefono">Teléfono</label>
-        <Controller
-          name="telefono"
-          control={control}
-          rules={{ required: 'Este campo es requerido' }}
-          render={({ field }) => <input {...field} className="form-control" />}
-        />
-        {errors.telefono && <span className="text-danger">{errors.telefono.message}</span>}
-      </div>
-      <div className="form-group">
-        <label htmlFor="email">Correo Electrónico</label>
-        <Controller
+        {touched.user && errors.user && (
+          <Form.Text className="text-danger">{errors.user}</Form.Text>
+        )}
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
+        <br />
+        <Form.Control
+          type="email"
           name="email"
-          control={control}
-          rules={{
-            required: 'Este campo es requerido',
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: 'Dirección de correo inválida'
-            }
-          }}
-          render={({ field }) => <input {...field} type="email" className="form-control" />}
+          value={formValue.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="E-mail"
+          required
         />
-        {errors.email && <span className="text-danger">{errors.email.message}</span>}
-      </div>
-      <div className="form-group">
-        <label htmlFor="mensaje">Mensaje</label>
-        <Controller
-          name="mensaje"
-          control={control}
-          rules={{ required: 'Este campo es requerido' }}
-          render={({ field }) => <textarea {...field} className="form-control" rows="4" />}
+        {touched.email && errors.email && (
+          <Form.Text className="text-danger">{errors.email}</Form.Text>
+        )}
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <br />
+        <Form.Control
+          as="textarea"
+          type="text"
+          name="message"
+          value={formValue.message}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          rows={3}
+          placeholder="Mensaje"
+          required
         />
-        {errors.mensaje && <span className="text-danger">{errors.mensaje.message}</span>}
-      </div>
-      <button type="submit" className="btn btn-primary">Enviar</button>
-    </form>
+        {touched.message && errors.message && (
+          <Form.Text className="text-danger">{errors.message}</Form.Text>
+        )}
+      </Form.Group>
+      <br />
+      <Button type="submit">Enviar</Button>
+      {submitted && <p>¡Formulario enviado!</p>}
+    </Form>
   );
-}
+};
 
 export default ContactForm;
