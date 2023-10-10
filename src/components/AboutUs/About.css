@@ -2,30 +2,30 @@
   min-height: 100vh;
   width: 100%;
   padding: 100px 50px 50px 50px;
-  background-image: url("C:\Users\DELL\Desktop\Proyecto3-Frontend\src\assets\AboutUs\kimi2.jpg");
+  background-image: url("C:\Users\DELL\Desktop\Proyecto3-Frontend\public\fondo-02-01.jpg");
   background-size: 100% 100%;
-  background-size: cover;
+  object-fit: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .text{
-  font-size: 1.7em;
+  font-size: 1em;
   font-style: italic;
   font-weight: bold;
-  color: #AB095A;
+  color: #D1374D;
 }
 
 .title-h1{
-  color: #AB095A;
+  color: #E9EDEF;
 }
 
 .title-h3{
-  color: #AB095A;
+  color: #E9EDEF;
 } 
 
 #texto{
-  color: #AB095A;
+  color: #D1374D;
   font-size: 2rem;
 }
 
@@ -68,3 +68,4 @@
 #stefan-dios:hover{
   border: 2px solid #BBBBBB;
 }
+
