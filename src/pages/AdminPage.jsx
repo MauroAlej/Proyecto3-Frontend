@@ -65,7 +65,23 @@ const AdminPage = () => {
  
   return (
    <>
-   <table className="table">
+   <style>
+    {`
+      body {
+        background-image: url("../public/fondo-01.jpg"); /* Reemplaza 'ruta-de-la-imagen.jpg' con la ruta de tu imagen */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+        background-repeat: no-repeat; /* Evita la repetición de la imagen */
+        background-attachment: fixed; /* Fija la imagen para que no se desplace con el contenido */
+        /* Agrega cualquier otra propiedad CSS que desees */
+        color: #fff
+        
+        }
+     
+    `}
+  </style>
+
+  <div className='d-flex mt-5 mb-3 mx-5'>
+ <table className="table">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -93,6 +109,9 @@ const AdminPage = () => {
     
   </tbody>
 </table>
+
+  </div>
+  
    </>
   )
 }

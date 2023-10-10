@@ -6,7 +6,9 @@ const HomePage = () => {
 
   const getProductDB = async () => {
     const res = await fetch("http://localhost:2020/api/products");
+
     const { getAllProd } = await res.json();
+    console.log(getAllProd);
     setProducts(getAllProd);
   };
 
