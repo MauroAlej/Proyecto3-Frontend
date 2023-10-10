@@ -14,7 +14,17 @@ function AboutPage() {
       <h1 className="title-h1">Sobre Nosotros</h1>
       <br />
       <p className="text">
-      Bienvenidos a Kimi, donde la pasión por la gastronomía asiática cobra vida. Nuestro equipo está formado por amantes apasionados de la comida que se dedican a ofrecerte una experiencia culinaria auténtica y memorable. Desde nuestros chefs expertos hasta nuestro atento personal de sala, todos compartimos el objetivo de crear platos que cautiven tus sentidos. Utilizamos ingredientes frescos y auténticos para asegurarnos de que cada bocado sea una verdadera delicia. En Kimi, no solo te ofrecemos una comida excepcional, sino también un ambiente acogedor y relajado donde te sentirás como en casa. Esperamos que disfrutes cada momento en Kimi y agradecemos sinceramente que nos hayas elegido para compartir nuestra pasión por la comida asiática contigo.
+        Bienvenidos a Kimi, donde la pasión por la gastronomía asiática cobra
+        vida. Nuestro equipo está formado por amantes apasionados de la comida
+        que se dedican a ofrecerte una experiencia culinaria auténtica y
+        memorable. Desde nuestros chefs expertos hasta nuestro atento personal
+        de sala, todos compartimos el objetivo de crear platos que cautiven tus
+        sentidos. Utilizamos ingredientes frescos y auténticos para asegurarnos
+        de que cada bocado sea una verdadera delicia. En Kimi, no solo te
+        ofrecemos una comida excepcional, sino también un ambiente acogedor y
+        relajado donde te sentirás como en casa. Esperamos que disfrutes cada
+        momento en Kimi y agradecemos sinceramente que nos hayas elegido para
+        compartir nuestra pasión por la comida asiática contigo.
       </p>
       <br />
       <h2 className="title-h3">El equipo de Kimi</h2>
