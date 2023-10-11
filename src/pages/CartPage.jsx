@@ -6,6 +6,17 @@ const CartPage = () => {
   const [cart, setCart] = useState([])
   const [cantidad, setCantidad] = useState(0)
   const [cantidadState, setCantidadState] = useState({})
+  
+  const queryParams = new URLSearchParams(location.search);
+  console.log(queryParams)
+  const state = queryParams.get('status')
+  console.log(state)
+
+  if (state === 'approved') {
+    alert('pago exitoso')
+    
+  }
+
   let suma = 0
 
   const getCartUser = async() => {
@@ -65,7 +76,7 @@ const CartPage = () => {
     })
 
     const data = await res.json()
-    location.href = `${data.res.init_pointpu}`
+    location.href = `${data.res.init_point}`
     }
 
     
