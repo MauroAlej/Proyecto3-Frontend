@@ -50,8 +50,7 @@ const AdminPage = () => {
        result.dismiss === Swal.DismissReason.cancel
       ) {
         swalWithBootstrapButtons.fire(
-          'Cancelled',
-          'Your imaginary file is safe :)',
+          'Cancelado',
           'error'
         )
       }
@@ -79,6 +78,9 @@ const AdminPage = () => {
      
     `}
   </style>
+  <div className='d-flex mt-5 mb-3 mx-5'> 
+<Link  to={'/createProd'} className='btn btn-danger'>Crear Nuevo Producto</Link>
+  </div>
 
   <div className='d-flex mt-5 mb-3 mx-5'>
  <table className="table">
