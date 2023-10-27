@@ -99,7 +99,7 @@ const CreateUserPage = () => {
     <input type="password" name='rpass' value={formValues.rpass} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange}/>
   </div>
   <div className="mb-3">
-  <select class="form-select" aria-label="Default select example">
+  <select className="form-select" aria-label="Default select example">
   <option value="1">Administrador</option>
   <option value="2">Usuario</option>
   </select>

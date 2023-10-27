@@ -52,12 +52,20 @@ const EditProdPage = () => {
                     estado: formValues.status
                 })
             })
+            
             const resUpdateProd = await res.json()
-            console.log(resUpdateProd)
-            setReloadPage(true)
-        }
-    }
+            if(resUpdateProd.status === 201) {
+     
 
+              Swal.fire(
+                'Producto actualizado!',
+                'success'
+              )
+        }
+    }}
+   
+            
+   
     
 
     useEffect(() => {
