@@ -45,7 +45,7 @@ const EditUserPage = () => {
             const res = await fetch(`http://localhost:2020/api/users/${params.id}`, {
                 method: 'PUT',
                 headers:{
-                    'Content-Type':'aplication/json'
+                    'content-type':'application/json'
                 },
                 body: JSON.stringify({
                     nombre: formValues.name,
@@ -72,8 +72,7 @@ const EditUserPage = () => {
     }
     useEffect(() => {
         getUsers()
-        setReloadPage(false)
-    }, [reloadPage])
+    }, [])
 
 
   return (

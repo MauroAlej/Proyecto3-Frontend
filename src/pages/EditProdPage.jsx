@@ -5,7 +5,9 @@ import Swal from 'sweetalert2'
 
 const EditProdPage = () => {
     const params = useParams()
-    const [inputCheckForms, setInputCheckForms] = useState(false)
+    const [inputCheckName, setInputCheckName] = useState(false)
+    const [inputCheckPrice, setInputCheckPrice] = useState(false)
+    const [inputCheckStatus, setInputCheckStatus] = useState(false)
     const [reloadPage, setReloadPage] = useState(false)
     const [formValues, setFormValues] = useState({
         name:'',
@@ -25,26 +27,31 @@ const EditProdPage = () => {
 
     const handleChange = (ev) => {
         setFormValues({ ...formValues, [ev.target.name]: ev.target.value })
-        if(formValues.name){
-            setInputCheckForms(false)
+        if(formValues.name && formValues.price && formValues.status){
+            setInputCheckName(false)
+            setInputCheckPrice(false)
+            setInputCheckStatus(false)
         }
     }
 
     const handleClick = async(ev) => {
         ev.preventDefault()
+        console.log(formValues)
         if(formValues.name === '' && formValues.price === '' && formValues.status === ''){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: '¡Campos vacios!',
               })
-        }else if(formValues.name === ''){
-            setInputCheckForms(true)
-        }else{
+        } else if (formValues.name === '' && formValues.price === '' && formValues.status === ''){
+            setInputCheckName(true)
+            setInputCheckPrice(true)
+            setInputCheckStatus(true)
+        } else {
             const res = await fetch(`http://localhost:2020/api/products/${params.id}`, {
                 method: 'PUT',
                 headers:{
-                    'Content-Type':'aplication/json'
+                  'content-type':'application/json'
                 },
                 body: JSON.stringify({
                     nombre: formValues.name,
@@ -52,8 +59,12 @@ const EditProdPage = () => {
                     estado: formValues.status
                 })
             })
-            
-            const resUpdateProd = await res.json()
+            const data = await res.json()
+            console.log(data)
+           /*  const { getAllProd } = await res.json()
+            setProducts(getAllProd) */
+            /* setReloadPage(true) */
+     /*        const resUpdateProd = await res.json()
             if(resUpdateProd.status === 201) {
      
 
@@ -61,17 +72,16 @@ const EditProdPage = () => {
                 'Producto actualizado!',
                 'success'
               )
-        }
+        } */
     }}
    
-            
-   
-    
+    useEffect(() => {
+      console.log(formValues)
+}, [formValues])
 
     useEffect(() => {
-        getProduct()
-        setReloadPage(false)
-    }, [reloadPage])
+      getProduct()
+}, [])
 
   return (
     <>
@@ -94,15 +104,15 @@ const EditProdPage = () => {
     <form>
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
-    <input type="text" name='name' value={formValues.name} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
+    <input type="text" name='name' value={formValues.name} className={inputCheckName ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange}/>
 </div>
   <div className="mb-3">
     <label htmlFor="exampleInputPassword1" className="form-label">Precio</label>
-    <input type="number" name='price' value={formValues.price} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword1" onChange={handleChange}/>
+    <input type="number" name='price' value={formValues.price} className={inputCheckPrice ? "form-control is-invalid": 'form-control'} id="exampleInputPassword1" onChange={handleChange}/>
   </div>
   <div className="mb-3">
     <label htmlFor="exampleInputPassword2" className="form-label">Estado</label>
-    <input type="text" name='status' value={formValues.status} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange}/>
+    <input type="text" name='status' value={formValues.status} className={inputCheckStatus ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange}/>
   </div>
   <button type="submit" className="btn btn-primary" onClick={handleClick}>Editar</button>
 </form>

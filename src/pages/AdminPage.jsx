@@ -33,7 +33,7 @@ const AdminPage = () => {
               fetch(`http://localhost:2020/api/products/${id}`, {
                 method: 'DELETE',
                 headers:{
-                    'Content-Type':'aplication/json'
+                  'content-type':'application/json'
                 },
             })
             .then(res => res.json())

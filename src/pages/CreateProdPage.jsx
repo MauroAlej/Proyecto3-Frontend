@@ -7,9 +7,9 @@ const createProductHome = () => {
   const navigate = useNavigate()
     const [inputCheckForms, setInputCheckForms] = useState(false)
     const [formValues, setFormValues] = useState({
-        nombre:'',
-        precio: 0,
-        estado:''
+        name:'',
+        price: 0,
+        status:''
     })
 
 
@@ -22,46 +22,45 @@ const createProductHome = () => {
 
     const handleClick = async(ev) => {
         ev.preventDefault()
-        if(formValues.nombre === '' && formValues.precio === '' && formValues.estado === ''){
+        if(formValues.name === '' && formValues.price === '' && formValues.status === ''){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: '¡Campos vacios!',
               })
-        }else if(formValues.nombre === ''){
+        }else if(formValues.name === ''){
             setInputCheckForms(true)
         }else{
-            const res = await fetch('http://localhost:2020/api/products', {
+            const res = await fetch(`http://localhost:2020/api/products`, {
                 method: 'POST',
                 headers:{
                     'Content-Type':'aplication/json'
                 },
                 body: JSON.stringify({
-                    nombre: formValues.nombre,
-                    precio: formValues.precio,
-                    estado: formValues.estado
+                    nombre: formValues.name,
+                    precio: formValues.price,
+                    estado: formValues.status
                 })
             })
             const resCreateProd = await res.json()
+          
             
-            if(resCreateProd.status === 201) {
-             
-
-              Swal.fire(
+           if(resCreateProd.status === 201) {
+             Swal.fire(
                 'Se creo el producto!',
                 'success'
               )
             
               setFormValues({
-                nombre:'',
-                precio: 0,
-                estado:''
+                name:'',
+                price: 0,
+                status:''
               })
 
               setTimeout(() => {
                 navigate('/admin')
               }, 1000);
-            }
+            } 
             
         }
     }
@@ -87,16 +86,19 @@ const createProductHome = () => {
      <form>
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
-    <input type="text" name='nombre' value={formValues.nombre} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange} required/>
+    <input type="text" name='name' value={formValues.name} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange} required/>
 </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Precio</label>
-    <input type="number" name='precio' value={formValues.precio} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword1" onChange={handleChange} required/>
+    <label htmlFor="exampleInputnamerd1" className="form-label">Precio</label>
+    <input type="number" name='price' value={formValues.price} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword1" onChange={handleChange} required/>
   </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputPassword2" className="form-label">Estado</label>
-    <input type="text" name='estado' value={formValues.estado} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange} required/>
-  </div>
+  <label htmlFor="exampleInputPassword3" className="form-label">Estado</label>
+  <select className="form-select" value={formValues.status} aria-label="Default select example" onChange={handleChange} required>
+  <option value="1">Activo</option>
+  <option value="2">Inactivo</option>
+  </select>
+    </div>
   <button type="submit" className="btn btn-primary" onClick={handleClick}>Crear Producto</button>
 </form>
    </div>

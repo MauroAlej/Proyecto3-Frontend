@@ -44,7 +44,7 @@ const CreateUserPage = () => {
             const res = await fetch('http://localhost:2020/api/users', {
                 method: 'POST',
                 headers:{
-                    'Content-Type':'aplication/json'
+                    'Content-Type':'application/json'
                 },
                 body: JSON.stringify({
                     nombre: formValues.name,
@@ -80,6 +80,22 @@ const CreateUserPage = () => {
     }
 
   return (
+    <>
+     <style>
+    {`
+      body {
+        background-image: url("../public/fondo-01.jpg"); /* Reemplaza 'ruta-de-la-imagen.jpg' con la ruta de tu imagen */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+        background-repeat: no-repeat; /* Evita la repetición de la imagen */
+        background-attachment: fixed; /* Fija la imagen para que no se desplace con el contenido */
+        /* Agrega cualquier otra propiedad CSS que desees */
+        color: #fff
+        
+        }
+     
+    `}
+  </style>
+
   <div className='d-flex justify-content-center mt-5'>
     <form>
   <div className="mb-3">
@@ -99,7 +115,8 @@ const CreateUserPage = () => {
     <input type="password" name='rpass' value={formValues.rpass} className={inputCheckForms ? "form-control is-invalid": 'form-control'} id="exampleInputPassword2" onChange={handleChange}/>
   </div>
   <div className="mb-3">
-  <select className="form-select" aria-label="Default select example">
+  <label htmlFor="exampleInputPassword3" className="form-label">Rol</label>
+  <select className="form-select" name='role' aria-label="Default select example">
   <option value="1">Administrador</option>
   <option value="2">Usuario</option>
   </select>
@@ -108,6 +125,7 @@ const CreateUserPage = () => {
   <button type="submit" className="btn btn-primary" onClick={handleClick}>Crear Usuario</button>
 </form>
   </div>
+  </>
   )
 }
 
