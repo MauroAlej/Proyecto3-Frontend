@@ -24,6 +24,7 @@ const CreateUserPage = () => {
 
     const handleClick = async(ev) => {
         ev.preventDefault()
+        const token = JSON.parse(localStorage.getItem('token'))
         if(formValues.name === '' && formValues.userName === '' && formValues.pass === '' && formValues.rpass === ''){
             Swal.fire({
                 icon: 'error',
@@ -44,7 +45,8 @@ const CreateUserPage = () => {
             const res = await fetch('http://localhost:2020/api/users', {
                 method: 'POST',
                 headers:{
-                    'Content-Type':'application/json'
+                    'Content-Type':'application/json',
+                    'authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     nombre: formValues.name,
@@ -53,9 +55,9 @@ const CreateUserPage = () => {
                     contrasenia: formValues.pass
                 })
             })
-            const resCreateProd = await res.json()
+            const resCreateUser = await res.json()
             
-            if(resCreateProd.status === 201) {
+            if(resCreateUser.status === 201) {
              
 
               Swal.fire(

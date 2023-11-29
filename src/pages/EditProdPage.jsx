@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 
@@ -8,7 +8,7 @@ const EditProdPage = () => {
   const [inputCheckName, setInputCheckName] = useState(false)
   const [inputCheckPrice, setInputCheckPrice] = useState(false)
   const [inputCheckStatus, setInputCheckStatus] = useState(false)
-  const [reloadPage, setReloadPage] = useState(false)
+  const navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     name: '',
     price: 0,
@@ -36,7 +36,8 @@ const EditProdPage = () => {
 
   const handleClick = async (ev) => {
     ev.preventDefault()
-    console.log(formValues)
+    const token = JSON.parse(localStorage.getItem('token'))
+
     if (formValues.name === '' && formValues.price === '' && formValues.status === '') {
       Swal.fire({
         icon: 'error',
@@ -51,7 +52,8 @@ const EditProdPage = () => {
       const res = await fetch(`http://localhost:2020/api/products/${params.id}`, {
         method: 'PUT',
         headers: {
-          'content-type': 'application/json'
+          'Content-type': 'application/json',
+          'authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           nombre: formValues.name,
@@ -59,34 +61,26 @@ const EditProdPage = () => {
           estado: formValues.status
         })
       })
-      const data = await res.json()
-      console.log(data)
-      /*  const { getAllProd } = await res.json()
-       setProducts(getAllProd) */
-      /* setReloadPage(true) */
-      /*        const resUpdateProd = await res.json()
-             if(resUpdateProd.status === 201) {
-      
- 
-               Swal.fire(
-                 'Producto actualizado!',
-                 'success'
-               )
-         } */
+      const resUpdateProd = await res.json()
+      if (resUpdateProd.status === 200) {
+        Swal.fire(
+          'Producto editado correctamente!',
+          'success'
+        )
+      }
+
+      setTimeout(() => {
+        navigate('/admin')
+      }, 1500);
     }
   }
-
-  useEffect(() => {
-    console.log(formValues)
-  }, [formValues])
-
   useEffect(() => {
     getProduct()
   }, [])
 
   return (
     <>
-    
+
 
       <div className='d-flex justify-content-center mt-5'>
         <form>
@@ -99,8 +93,11 @@ const EditProdPage = () => {
             <input type="number" name='price' value={formValues.price} className={inputCheckPrice ? "form-control is-invalid" : 'form-control'} id="exampleInputPassword1" onChange={handleChange} />
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputPassword2" className="form-label">Estado</label>
-            <input type="text" name='status' value={formValues.status} className={inputCheckStatus ? "form-control is-invalid" : 'form-control'} id="exampleInputPassword2" onChange={handleChange} />
+            <label htmlFor="exampleInputPassword3" className="form-label">Estado</label>
+            <select className="form-select" value={formValues.status} aria-label="Default select example" onChange={handleChange} >
+              <option value="1">Activo</option>
+              <option value="2">Inactivo</option>
+            </select>
           </div>
           <button type="submit" className="btn btn-primary" onClick={handleClick}>Editar</button>
         </form>

@@ -8,13 +8,27 @@ const CartPage = () => {
   let suma = 0
 
   const getCartUser = async() => {
+    const token = JSON.parse(localStorage.getItem('token'))
+    
     const idUser = JSON.parse(localStorage.getItem('idUser'))
-    const resCart = await fetch(`http://localhost:2020/api/users/${idUser}`)
+    const resCart = await fetch(`http://localhost:2020/api/users/${idUser}`,  {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json",
+        'authorization': `Bearer ${token}`
+      }
+    })
     const dataCart = await resCart.json()
 
 
     const idCart = dataCart.getUser.idCart
-    const resProd = await fetch(`http://localhost:2020/api/cart/${idCart}`)
+    const resProd = await fetch(`http://localhost:2020/api/cart/${idCart}`, {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json",
+        'authorization': `Bearer ${token}`
+      }
+    })
     const dataProd = await resProd.json()
     
     const valoresIniciales = {}
@@ -46,10 +60,13 @@ const CartPage = () => {
   }
 
   const handleClickMP = async () =>{
+    const token = JSON.parse(localStorage.getItem('token'))
+
     const res = await fetch('http://localhost:2020/api/pay',{
       method: 'POST',
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        'authorization': `Bearer ${token}`
       },
     
     })

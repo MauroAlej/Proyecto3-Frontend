@@ -15,13 +15,14 @@ const createProductHome = () => {
 
     const handleChange = (ev) => {
         setFormValues({ ...formValues, [ev.target.name]: ev.target.value })
-        if(formValues.nombre){
+        if(formValues.name){
             setInputCheckForms(false)
         }
     }
 
     const handleClick = async(ev) => {
         ev.preventDefault()
+        const token = JSON.parse(localStorage.getItem('token'))
         if(formValues.name === '' && formValues.price === '' && formValues.status === ''){
             Swal.fire({
                 icon: 'error',
@@ -34,7 +35,8 @@ const createProductHome = () => {
             const res = await fetch(`http://localhost:2020/api/products`, {
                 method: 'POST',
                 headers:{
-                    'Content-Type':'application/json'
+                    'Content-Type':'application/json',
+                    'authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     nombre: formValues.name,
@@ -46,6 +48,7 @@ const createProductHome = () => {
           
             
            if(resCreateProd.status === 201) {
+            
              Swal.fire(
                 'Se creo el producto!',
                 'success'
