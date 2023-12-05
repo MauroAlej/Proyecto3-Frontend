@@ -118,19 +118,7 @@ const handleSubmit = async () => {
 
   return (
     <>
-     <style>
-        {`
-          body {
-            background-image: url("../public/comida-tipica-de-china\ \(1\).jpg"); /* Reemplaza 'ruta-de-la-imagen.jpg' con la ruta de tu imagen */
-            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
-            background-repeat: no-repeat; /* Evita la repetición de la imagen */
-            background-attachment: fixed; /* Fija la imagen para que no se desplace con el contenido */
-            /* Agrega cualquier otra propiedad CSS que desees */
-            
-          }
-         
-        `}
-      </style>
+    <div className='full-screen'>
   
         
      
@@ -166,7 +154,7 @@ const handleSubmit = async () => {
           <button type="button" className="btn btn-primary" onClick={handleSubmit}>Enviar</button>
         </form>
       </div>
-      
+      </div>
     </>
   )
 }

@@ -90,19 +90,8 @@ const LoginPages = () => {
 
   return (
     <>
-    <style>
-    {`
-          body {
-            background-image: url("../public/china.avif"); /* Reemplaza 'ruta-de-la-imagen.jpg' con la ruta de tu imagen */
-            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
-            background-repeat: no-repeat; /* Evita la repetición de la imagen */
-            background-attachment: fixed; /* Fija la imagen para que no se desplace con el contenido */
-            /* Agrega cualquier otra propiedad CSS que desees */
-            
-          }
-         
-        `}
-    </style>
+  <div className='full-screen-container'>
+  
       <div className='d-flex justify-content-center mt-5 '>
         <form className="class-login">
           <div className="mb-3">
@@ -132,6 +121,7 @@ const LoginPages = () => {
     
   </a>
         </div>
+      </div>
       </div>
     </>
   );

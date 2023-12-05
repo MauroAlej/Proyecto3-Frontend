@@ -64,15 +64,9 @@ border-radius: 5px;
 .button-hambur:focus {
   background-color: #ffffff; /* Cambia el color de fondo del botón al hacer clic */
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 39ad8f8c13e6f827c228ff3036f29d5ecfaa2daa
 
 
 
-/* css formulario reserva */
 .color-btn{
   display: inline-block; 
     background-color: #c60000bb; 
@@ -88,17 +82,33 @@ border-radius: 5px;
   color: #fff;
 }
 
+.full-screen-container {
+  background-image: url('../public/china.avif');
+  min-height: 80vh; /* Establece la altura mínima del contenedor al 100% de la altura de la ventana visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #181717; /* Puedes ajustar el color de fondo según tus preferencias */
+}
+.full-screen{
+  background-image: url('../public/comida-tipica-de-china\ \(1\).jpg');
+  min-height: 80vh; /* Establece la altura mínima del contenedor al 100% de la altura de la ventana visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #181717;
+}
 
 .table {
   background-color: #af0000;
 }
 
 /* css formulario reserva */
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> 39ad8f8c13e6f827c228ff3036f29d5ecfaa2daa
+.content {
+  margin-bottom: 60px; /* Ajusta según la altura del footer */
+}
 .class-footer {
   background-color: #d9ab86;
   font-family: "Arial", sans-serif;
@@ -106,7 +116,7 @@ border-radius: 5px;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 10px; /* Añade espacio entre el contenido y el footer */
+  padding: 5px; /* Añade espacio entre el contenido y el footer */
 }
 .class-error{
   font-family: Arial, sans-serif; /* Cambia la fuente a Arial o cualquier otra fuente que desees */
@@ -114,8 +124,4 @@ border-radius: 5px;
    font-size: 16px;
    color: #af0000;
 }
-<<<<<<< HEAD
->>>>>>> 1a58a93b4148b3847a7207338782f1385b308fe5
-=======
 
->>>>>>> 39ad8f8c13e6f827c228ff3036f29d5ecfaa2daa
